@@ -31,7 +31,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns animals', async() => {
+    test('returns products', async() => {
 
       const expectation = [
         {
@@ -59,7 +59,7 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-      expect(data.body).toEqual(expectation);
+      expect(data.body[0]).toEqual(expectation);
     });
   });
 });
