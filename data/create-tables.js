@@ -17,17 +17,21 @@ async function run() {
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
                 );           
-                CREATE TABLE animals (
-                    id SERIAL PRIMARY KEY NOT NULL,
+                CREATE TABLE favorites (
+                    id SERIAL PRIMARY KEY NOT NULL, 
+                    image_link VARCHAR(512) NOT NULL,
+                    brand VARCHAR(512) NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    cool_factor INTEGER NOT NULL,
+                    product_type VARCHAR(512) NOT NULL,
+                    description VARCHAR(512) NOT NULL,
+                    db_id INTEGER NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
 
     console.log('create tables complete', getEmoji(), getEmoji(), getEmoji());
   }
-  catch(err) {
+  catch (err) {
     // problem? let's see the error...
     console.log(err);
   }
